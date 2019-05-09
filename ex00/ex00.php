@@ -56,10 +56,38 @@
 	}
 
 	$map = new Map(10, 10);
-	$map->print_map();
+	//$map->print_map();
 	
 	$ships[] = new Ship(new Point(1, 1));
-	echo "\n\n";
-	$ships[0]->moveby(1,1);
 	$map->setOnMap($ships);
-	$map->print_map();
+	//$map->print_map();
+	if ($_POST["move_right"])
+	{
+		$ships[0]->moveby(2,2);
+		$map->setOnMap($ships);
+		header('Location: ./ex00.php');
+	}
+?>
+<html>
+	<body>
+		<?php
+			for($j = 0; $j < $map->height; $j++)
+			{
+				for($k = 0;$k < $map->width; $k++)
+				{
+		?>
+				<div style="float:left; border:1px;">
+					<?php echo $map->data[$k + $j * $map->width]." "; ?>
+				</div>
+			<?php		
+				}
+			?>
+			</br>
+			<?php
+			}
+			?>
+			<form method="post">
+				<input type="submit" name="move_right"  value="move_right" />
+			</form>
+	</body>
+<html>
