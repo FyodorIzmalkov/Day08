@@ -19,16 +19,25 @@
 	.cell{
 	}
 
+	.spaceship{
+		width:45px;
+		height: 45px;
+		vertical-align: bottom;
+	}
+
 </style>
 </head>
 <body>
-
+<!-- <img src="https://i.ibb.co/rt4ZqSn/spaceship.jpg" alt="spaceship"> -->
 <table class="table" >
-<?php for ($i = 0; $i < 25; $i++){
+<?php for ($i = 0; $i < 24; $i++){
 	echo "<tr>";
-		for ($j = 0; $j < 25; $j++)
+		for ($j = 0; $j < 24; $j++)
 		{
-			echo "<td class=\"cell\"></td>";
+			if ($i == 5 && $j == 5)
+				echo "<td class=\"cell\"><img class=\"spaceship\" src=\"https://i.ibb.co/rt4ZqSn/spaceship.jpg\"/></td>";
+			else
+				echo "<td class=\"cell\"></td>";
 		}
 	echo "</tr>";
 }?>
